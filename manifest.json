@@ -1,0 +1,24 @@
+{
+   "manifest_version": 3,
+   "name": "Keyword Bookmarks",
+   "version": "0.0.0.1",
+   "description": "Open bookmarks based on the keyword, which is defined as part of the bookmark title. e.g. [g] Google Search",
+   "background": {
+      "service_worker": "scripts/background.js",
+      "type": "module"
+   },
+   "options_page": "html/options.html",
+   "icons": {
+      "16": "images/kwbm16.png",
+      "48": "images/kwbm48.png",
+      "128": "images/kwbm128.png"
+   },
+   "omnibox": {
+      "keyword": "kw"
+   },
+   "permissions": [
+     "bookmarks"
+     , "storage"
+     , "tabs"
+   ]
+}

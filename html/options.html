@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <style>
+        body {text-align: center; padding-top: 50px; font-family: sans-serif;color: grey; }
+        #regexp {border: solid #ddd 1px; height: 28px}
+        #main {border: 1px solid #ddd; padding: 15px; width: 35%;background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ddd));}
+        #msg {width: 35%; font-size: x-small; color: #999;}
+        td.help {cursor: help; }
+        #cmds b {padding-left: 20px;}
+
+    </style>
+    <script type="text/javascript" src="options.js"></script>
+
+    <title>Bookmark Keyword Options</title>
+    <body>
+        <center>
+        <div id="title">
+            <h2>Bookmark Keyword Options</h2>
+        </div>
+        <div id="main">
+            <table border="0" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td id="h0" class="help">Regular Expression:</td><td><input type="text" id="regexp"></td>
+                </tr>
+                <tr>
+                    <td id="h1" class="help">Case Sensitive:</td><td><input type="checkbox" id="regexpcase"></td>
+                </tr>
+                <div>
+                    <td id="h2" class="help">Always Open in New Tab:</td><td><input type="checkbox" id="newtab"></td>
+                </div>
+                <tr>
+                    <td id="h3" class="help"># of Suggestions:</td><td><input style="vertical-align: middle" type="range" id="maxDepth" min="1" max="5" onchange="$('range').innerHTML = this.value"> <span id="range"></span></td>
+                </tr>
+                <tr>
+                    <td id="h4" class="help">Keywords Expanded:</td><td><span id="usageCount"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <span style="font-size: .8em">
+                    <b>Tip</b>: You can execute keyword commands by putting them on the end of the keyword or on the end of the url, if selected from the suggestions list.
+                    The following commands are currently supported:<br/>
+                    <span id="cmds">
+                        <b>:t</b> - open in the new tab<br/>
+                        <b>:p</b> - pin tab<br/>
+                        <b>:w</b> - open in the new window<br/>
+                        <b>:i</b> - incognito mode<br/>
+                    </span>
+                    <br/>
+                    For example: Assuming we have bookmark defined as '[fb] Facebook' to open the bookmark in the new window, you would type the following command in the omnibar
+                    "kw{tab}fb:w"
+                    <p>The commands could be combined. For example to open the bookmark in the new incognito window you would type: 'kw{tab}fb:wi'.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="button" id="saveBtn" value="Save Options"/></td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <div id="msg"></div>
+        </center>
+    </body>
+</head>
+</html>
