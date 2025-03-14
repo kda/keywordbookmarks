@@ -1,4 +1,4 @@
-import 'scripts/storage.js'
+import {storage} from './storage.js'
 
 var CMD_REG_EXP = /:([ptwi]{1,})$/;
 
@@ -39,7 +39,7 @@ var CMD_REG_EXP = /:([ptwi]{1,})$/;
 
 
 var kwSearch = {
-    findBookmarks: function (regex, text, callback) {
+    findBookmarks: async function (regex, text, callback) {
         console.log("findBookmarks: enter");
 
         // var maxDepth = storage.get(storage.DEPTH_KEY) || 5;
@@ -108,7 +108,7 @@ var kwSearch = {
         });
     },
 
-    getRegExp: function(text) {
+    getRegExp: async function(text) {
         var regExp = storage.get(storage.REG_EXP_KEY);
         var reCase = storage.get(storage.REG_EXP_OPT_KEY);
 
@@ -117,19 +117,19 @@ var kwSearch = {
         } else {
             reCase = null;
         }
-        var r = new RegExp(storage.DEFAULT_REGEXP.replace(/%s/g, text), reCase);
+        let r = new RegExp(storage.DEFAULT_REGEXP.replace(/%s/g, text), reCase);
 
       console.log(`regExp: ${regExp}`);
-        //if (regExp) {
-        //    r = new RegExp(regExp.replace(/%s/g, text), reCase);
-        //}
-      regExp.then(function(value) {
-        console.log(`value: ${value}`);
-        console.log("value: " + JSON.stringify(value));
-        if (Object.keys(value).length != 0) {
-          r = new RegExp(value.replace(/%s/g, text), reCase);
-        }
-      })
+    //    if (regExp != null) {
+    //        r = new RegExp(regExp.replace(/%s/g, text), reCase);
+    //    }
+      // regExp.then(function(value) {
+      //   console.log(`value: ${value}`);
+      //   console.log("value: " + JSON.stringify(value));
+      //   if (Object.keys(value).length != 0) {
+      //     r = new RegExp(value.replace(/%s/g, text), reCase);
+      //   }
+      // })
 
         return r;
     },
@@ -149,14 +149,14 @@ var kwSearch = {
     }
 };
 
-chrome.omnibox.onInputChanged.addListener(function (text, suggest) {
+chrome.omnibox.onInputChanged.addListener(async function (text, suggest) {
     if (!text) {
         return;
     }
 
     text = text.replace(CMD_REG_EXP, "");
 
-    kwSearch.findBookmarks(kwSearch.getRegExp(text), text, function (results){
+    kwSearch.findBookmarks(kwSearch.getRegExp(text), text, function (results) {
         suggest(kwSearch.getSuggestion(results, text));
     });
 });

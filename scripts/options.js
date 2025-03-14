@@ -1,4 +1,4 @@
-import './scripts/storage.js'
+import {storage} from './storage.js'
 
 window.onload = function() {
   loadOptions();
@@ -30,16 +30,19 @@ function save() {
 }
 
 function loadOptions() {
-    var re = storage.get(storage.REG_EXP_KEY);
+    //var re = storage.get(storage.REG_EXP_KEY);
+    let re = storage.get(storage.REG_EXP_KEY, storage.DEFAULT_REGEXP);
     var reCase = storage.get(storage.REG_EXP_OPT_KEY);
     var newTab = storage.get(storage.NEW_TAB_KEY);
-    var maxDepth = storage.get(storage.DEPTH_KEY, 5);
+    //var maxDepth = storage.get(storage.DEPTH_KEY, 5);
+    let maxDepth = storage.get(storage.DEPTH_KEY, storage.DEFAULT_DEPTH);
 
-    $("regexp").value = (re ? re : storage.DEFAULT_REGEXP);
+    //$("regexp").value = (re ? re : storage.DEFAULT_REGEXP);
+    $("regexp").value = re;
     $("regexpcase").checked = (reCase == "true" ? true : false);
     $("newtab").checked = (newTab == "true" ? true : false);
     $("maxDepth").value = maxDepth;
-    $("range").innerHTML = maxDepth;
+    $("range").innerHTML = storage.MAXIMUM_DEPTH;
     $("usageCount").innerHTML = storage.get(storage.USE_COUNT_KEY, 0);
 }
 
