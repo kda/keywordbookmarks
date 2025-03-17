@@ -32,6 +32,7 @@ function save() {
 function loadOptions() {
     //var re = storage.get(storage.REG_EXP_KEY);
     let re = storage.get(storage.REG_EXP_KEY, storage.DEFAULT_REGEXP);
+    console.log(`re: ${re}`);
     var reCase = storage.get(storage.REG_EXP_OPT_KEY);
     var newTab = storage.get(storage.NEW_TAB_KEY);
     //var maxDepth = storage.get(storage.DEPTH_KEY, 5);

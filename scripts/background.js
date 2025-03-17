@@ -39,7 +39,7 @@ var CMD_REG_EXP = /:([ptwi]{1,})$/;
 
 
 var kwSearch = {
-    findBookmarks: async function (regex, text, callback) {
+    findBookmarks: function (regex, text, callback) {
         console.log("findBookmarks: enter");
 
         // var maxDepth = storage.get(storage.DEPTH_KEY) || 5;
@@ -108,7 +108,7 @@ var kwSearch = {
         });
     },
 
-    getRegExp: async function(text) {
+    getRegExp: function(text) {
         var regExp = storage.get(storage.REG_EXP_KEY);
         var reCase = storage.get(storage.REG_EXP_OPT_KEY);
 
@@ -149,7 +149,7 @@ var kwSearch = {
     }
 };
 
-chrome.omnibox.onInputChanged.addListener(async function (text, suggest) {
+chrome.omnibox.onInputChanged.addListener(function (text, suggest) {
     if (!text) {
         return;
     }

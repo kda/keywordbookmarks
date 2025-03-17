@@ -32,9 +32,17 @@ export let storage = {
       // TODO: consider switching from 'local' to 'sync'
       //const data = await chrome.storage.local.get(key);
       //return data[key] || defaultValue;
-      return chrome.storage.local.get(key, (result) => {
-        return result[key] || defaultValue;
+      //return chrome.storage.local.get(key, (result) => {
+      chrome.storage.local.get(key, (result) => {
+        console.log(`result: ${result}`);
+        if (result[key] != null && result[key] != "undefined") {
+          return result[key]
+        } else {
+          return defaultValue;
+        }
+        //return result[key] || defaultValue;
       });
+      return defaultValue;
       //if (defaultValue != null || defaultValue != "undefined") {
       //}
       //let result = chrome.storage.local.get({key: defaultValue});
