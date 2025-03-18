@@ -2,7 +2,7 @@
    "manifest_version": 3,
    "name": "Keyword Bookmarks",
    "version": "0.0.0.1",
-   "description": "Open bookmarks based on the keyword, which is defined as part of the bookmark title. e.g. [g] Google Search",
+   "description": "Quickly open a bookmark from the keyboard based on a keyword in the bookmark title.",
    "background": {
       "service_worker": "./scripts/background.js",
       "type": "module"
