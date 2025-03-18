@@ -1,0 +1,12 @@
+Keyword Bookmarks enables the user to navigate to frequently used sites using only the keyboard.
+
+How To:
+- Go to a website. (e.g. http://example.com)
+- Bookmark a website. (Ctrl-D)
+- Prefix the title with a short name (keyword) in square brackets. (At the far left of the 'Name' field type '[ex]', click 'Done'.)
+- Select the omnibox. (Ctrl-L)
+- Type 'kw{tab}ex{enter}'.  (Voila: You have arrived at http://example.com)
+
+As an additional feature, a suffix may be added to the keyword.
+- ':w' : Open the bookmark in a new window.
+- ':t' : Open the bookmark in a new tab.
