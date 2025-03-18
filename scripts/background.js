@@ -1,4 +1,4 @@
-import {storage} from './storage.js'
+// import {storage} from './storage.js'
 
 var CMD_REG_EXP = /:([ptwi]{1,})$/;
 
@@ -40,18 +40,18 @@ var CMD_REG_EXP = /:([ptwi]{1,})$/;
 
 var kwSearch = {
     findBookmarks: function (regex, text, callback) {
-        console.log("findBookmarks: enter");
+        //console.log("findBookmarks: enter");
 
         // var maxDepth = storage.get(storage.DEPTH_KEY) || 5;
         let maxDepth = 5;
         //var maxDepth = storage.get(storage.DEPTH_KEY) || 5;
         var results = [];
 
-      console.log(`findBookmarks: text ${text}`)
-      console.log(`findBookmarks: maxDepth ${maxDepth}`)
+      //console.log(`findBookmarks: text ${text}`)
+      //console.log(`findBookmarks: maxDepth ${maxDepth}`)
         chrome.bookmarks.search(text, function (matched) {
             for (var i = 0; i < matched.length && results.length < maxDepth; i++) {
-              console.log(`findBookmarks: i ${i} matched[i].title ${matched[i].title}`)
+              //console.log(`findBookmarks: i ${i} matched[i].title ${matched[i].title}`)
                 if(matched[i].title && regex.test(matched[i].title)) {
                     results.push(matched[i]);
                 }
@@ -61,16 +61,17 @@ var kwSearch = {
     },
 
     loadUrl: function (url, options) {
-        var newTab = storage.get(storage.NEW_TAB_KEY);
+        //var newTab = storage.get(storage.NEW_TAB_KEY);
+        var newTab = false;
 
-      console.log(`loadUrl: url ${url}`);
+      //console.log(`loadUrl: url ${url}`);
         if (options.window) {
             chrome.windows.create({url: url});
         }
 
       let queryOptions = {active: true, lastFocusedWindow: true};
       chrome.tabs.query(queryOptions, ([tab]) => {
-        console.log(`loadUrl: tab.id ${tab.id}`);
+        //console.log(`loadUrl: tab.id ${tab.id}`);
         chrome.tabs.update(tab.id, {url: url, pinned: options.pinned, selected: true});
       });
       //console.log("loadUrl: pre-getCurrent");
@@ -88,13 +89,13 @@ var kwSearch = {
         //        chrome.tabs.create({url: url, pinned: options.pinned, selected: true});
         //    }
         //});
-        kwSearch.updateCount();
+        //kwSearch.updateCount();
     },
 
-    updateCount: function() {
-        var cnt = storage.get(storage.USE_COUNT_KEY, 0);
-        storage.set(storage.USE_COUNT_KEY, parseInt(cnt) + 1);
-    },
+    // updateCount: function() {
+    //     var cnt = storage.get(storage.USE_COUNT_KEY, 0);
+    //     storage.set(storage.USE_COUNT_KEY, parseInt(cnt) + 1);
+    // },
 
     getSuggestion: function (bookmarks, text) {
         return bookmarks.map(function (bookmark){
@@ -109,17 +110,32 @@ var kwSearch = {
     },
 
     getRegExp: function(text) {
-        var regExp = storage.get(storage.REG_EXP_KEY);
-        var reCase = storage.get(storage.REG_EXP_OPT_KEY);
+        //var regExp = storage.get(storage.REGEXP_KEY);
+        //var reCase = storage.get(storage.REGEXP_CASESENSITIVE_KEY);
+        //var reCase = false;
+  //chrome.storage.sync.get(
+  //                        {regexp_casesensitive: false
+  //                        },
+  //                        (items) => {
+  //                          //document.getElementById('regexp').value = items.regexp;
+  //                          //document.getElementById('regexpcase').checked = items.regexp_casesensitive;
+  //                          reCase = items.regexp_casesensitive;
+  //                          console.log(`items.regexp_casesensitive: ${items.regexp_casesensitive}`);
+  //                          console.log(`reCase: ${reCase}`);
+  //                        }
+  //);
 
-        if (reCase != "true") {
-            reCase = "i";
-        } else {
-            reCase = null;
-        }
-        let r = new RegExp(storage.DEFAULT_REGEXP.replace(/%s/g, text), reCase);
+        // console.log(`reCase: ${reCase}`);
+        // if (reCase != true) {
+        //     reCase = "i";
+        // } else {
+        //     reCase = null;
+        // }
+        // console.log(`reCase: ${reCase}`);
+        //let r = new RegExp(storage.DEFAULT_REGEXP.replace(/%s/g, text), reCase);
+        let r = new RegExp("^\\\[%s.*\\\]".replace(/%s/g, text));
 
-      console.log(`regExp: ${regExp}`);
+      // console.log(`regExp: ${regExp}`);
     //    if (regExp != null) {
     //        r = new RegExp(regExp.replace(/%s/g, text), reCase);
     //    }

@@ -2,14 +2,16 @@ ZIPFILE_NAME=keywordbookmarks_extension.zip
 
 ZIPFILE_CONTENTS = \
 									 LICENSE \
-									 html/options.html \
 									 images/kwbm128.png \
 									 images/kwbm16.png \
 									 images/kwbm48.png \
 									 manifest.json \
 									 scripts/background.js \
-									 scripts/options.js \
-									 scripts/storage.js \
+
+# UNUSED = \
+#									 html/options.html \
+#									 scripts/options.js \
+#									 scripts/storage.js \
 
 
 all: $(ZIPFILE_NAME)
