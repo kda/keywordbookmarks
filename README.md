@@ -10,5 +10,6 @@ This is a simple extension rebuilt to comply with [v3 manifest](https://develope
 * Improve the logo.
 * Fix the suffixes (`:i`, `:t`, `:p`).
 * Clean up the source.
+* Make a video of running it.
 
 [Changelog](changelog.md)
