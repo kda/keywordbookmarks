@@ -1,5 +1,5 @@
 # keywordbookmarks
-Source code to Chrome Extension titled "KeyWord BookMarks".
+**KeyWord BookMarks** Chrome Extension
 
 Read the [description](DESCRIPTION.txt).
 
