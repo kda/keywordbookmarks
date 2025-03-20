@@ -1,12 +1,20 @@
 Keyword Bookmarks enables the user to navigate to frequently used sites using only the keyboard.
 
 How To:
-- Go to a website. (e.g. http://example.com)
-- Bookmark a website. (Ctrl-D)
-- Prefix the title with a short name (keyword) in square brackets. (At the far left of the 'Name' field type '[ex]', click 'Done'.)
-- Select the omnibox. (Ctrl-L)
-- Type 'kw{tab}ex{enter}'.  (Voila: You have arrived at http://example.com)
+• Go to a website. (e.g. http://example.com)
+• Bookmark a website. (Ctrl-D)
+• Prefix the title with a short name (keyword) in square brackets. (At the far left of the 'Name' field type '[ex]', click 'Done'.)
+• Select the omnibox. (Ctrl-L)
+• Type 'kw{tab}ex{enter}'.  (Voila: You have arrived at http://example.com)
 
 As an additional feature, a suffix may be added to the keyword.
-- ':w' : Open the bookmark in a new window.
-- ':t' : Open the bookmark in a new tab.
+• ':w' : Open the bookmark in a new window.
+• ':t' : Open the bookmark in a new tab. (broken)
+• ':p' : Pin the tab after opening bookmark. (broken)
+• ':i' : Open the bookmark in an ingcognito tab or window. (broken)
+
+This is an updated version of a very old extension: Bookmark Keyword (https://chromewebstore.google.com/detail/bookmark-keyword/jgmmhndnlacimnjmgplphnokhnlbhnmd)
+
+This extension is used every day by the author.
+
+"Nothing done every day should require the mouse."
