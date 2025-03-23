@@ -21,4 +21,4 @@ $(ZIPFILE_NAME): $(ZIPFILE_CONTENTS)
 
 .PHONY: clean
 clean:
-	rm $(ZIPFILE_NAME)
+	rm -f $(ZIPFILE_NAME)
