@@ -2,7 +2,7 @@
    "manifest_version": 3,
    "name": "Keyword Bookmarks",
    "short_name": "kwbm",
-   "version": "0.0.0.1",
+   "version": "0.0.0.2",
    "description": "Quickly open a bookmark from the keyboard based on a keyword in the bookmark title.",
    "homepage_url": "https://github.com/kda/keywordbookmarks",
    "background": {
@@ -19,7 +19,6 @@
    },
    "permissions": [
      "bookmarks"
-     , "storage"
      , "tabs"
    ]
 }
