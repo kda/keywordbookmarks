@@ -1,4 +1,5 @@
-ZIPFILE_NAME=keywordbookmarks_extension.zip
+VERSION_NAME := $(shell grep '"version"' manifest.json | sed -r 's/.*"([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+.*)".*/\1/g')
+ZIPFILE_NAME = keyword_bookmarks_v$(VERSION_NAME).zip
 
 ZIPFILE_CONTENTS = \
 									 LICENSE \
@@ -21,4 +22,4 @@ $(ZIPFILE_NAME): $(ZIPFILE_CONTENTS)
 
 .PHONY: clean
 clean:
-	rm -f $(ZIPFILE_NAME)
+	rm -f *.zip
