@@ -1,4 +1,4 @@
-Keyword Bookmarks enables the user to navigate to frequently used sites using only the keyboard.
+KeyWord BookMarks enables the user to navigate to frequently used sites using only the keyboard.
 
 How To:
 • Go to a website. (e.g. http://example.com)
@@ -8,10 +8,10 @@ How To:
 • Type 'kw{tab}ex{enter}'.  (Voila: You have arrived at http://example.com)
 
 As an additional feature, a suffix may be added to the keyword.
+• ':p' : Pin the tab after opening bookmark.
+• ':t' : Open the bookmark in a new tab.
 • ':w' : Open the bookmark in a new window.
-• ':t' : Open the bookmark in a new tab. (broken)
-• ':p' : Pin the tab after opening bookmark. (broken)
-• ':i' : Open the bookmark in an ingcognito tab or window. (broken)
+• ':wi' : Open the bookmark in a new incognito window.
 
 This is an updated version of a very old extension: Bookmark Keyword (https://chromewebstore.google.com/detail/bookmark-keyword/jgmmhndnlacimnjmgplphnokhnlbhnmd)
 

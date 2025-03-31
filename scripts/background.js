@@ -66,13 +66,19 @@ var kwSearch = {
 
       //console.log(`loadUrl: url ${url}`);
         if (options.window) {
-            chrome.windows.create({url: url});
+            chrome.windows.create({url: url, incognito: options.incognito});
         }
 
       let queryOptions = {active: true, lastFocusedWindow: true};
+      let tabProperties = {url: url, pinned: options.pinned, selected: true};
       chrome.tabs.query(queryOptions, ([tab]) => {
         //console.log(`loadUrl: tab.id ${tab.id}`);
-        chrome.tabs.update(tab.id, {url: url, pinned: options.pinned, selected: true});
+        //console.log(`tab.url: tab.url ${tab.url}`);
+        if (options.tab != true || tab.url == "chrome://newtab/") {
+          chrome.tabs.update(tab.id, tabProperties);
+        } else {
+          chrome.tabs.create(tabProperties);
+        }
       });
       //console.log("loadUrl: pre-getCurrent");
       //chrome.tabs.getCurrent(function(tab) {
